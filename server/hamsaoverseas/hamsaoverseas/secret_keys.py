@@ -1,1 +1,1 @@
-DJANGO_SECRET_KEY=''
+DJANGO_SECRET_KEY='0qvaot_w!(x4qi!4xccj4)e&-17r2fbmfg_#f5kh0g)2d=2g*t'

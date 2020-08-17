@@ -44,26 +44,28 @@ $(document).ready(function () {
   });
 });
 
-let contactform = document.getElementById("contactForm");
-contactform.addEventListener("submit", function (event) {
+let enquiryform = document.getElementById("enquiryForm");
+enquiryform.addEventListener("submit", function (event) {
   event.preventDefault();
   let data = {};
-  data.name = contactform["name"].value;
-  data.email = contactform["email"].value;
-  data.mobile = contactform["mobile"].value;
-  data.message = contactform["message"].value;
+  data.name = enquiryform["name"].value;
+  data.email = enquiryform["email"].value;
+  data.mobile = enquiryform["mobile"].value;
+  data.country = enquiryform["country"].value;
+  data.address = enquiryform["address"].value;
+  data.website = enquiryform["website"].value;
+  data.product = enquiryform["product"].value;
+  data.message = enquiryform["message"].value;
 
-  $.ajax("http://127.0.0.1:8000/contact/feedback/", {
+  $.ajax("http://127.0.0.1:8000/contact/enquiry/", {
     type: "POST",
     data: data,
     success: function (data,textStatus,jqXHR) {
-      console.log(data);
-      console.log(textStatus);
-      console.log(jqXHR);
-      
+      swal("Success!", `${data.statusMessage}`, "success");
     },
     error: function (jqXHR,textStatus,errorThrown) {
       console.log(errorThrown);
+      swal("Error!", `${data.statusMessage}`, "error");
     },
   });
 });
